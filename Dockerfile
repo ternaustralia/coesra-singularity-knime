@@ -7,5 +7,6 @@ RUN apt update -y && \
     cd /opt/knime && \
     wget --no-check-certificate https://download.knime.org/analytics-platform/linux/knime_3.3.1.linux.gtk.x86_64.tar.gz && \
     tar -xvzf /opt/knime/knime_3.3.1.linux.gtk.x86_64.tar.gz 
+RUN sed -i 's/-Xmx2048m/-Xmx5000m/g' /opt/knime/knime_3.3.1/knime.ini
 
-ENTRYPOINT exec /opt/knime/knime_3.3.1/knime 
+ENTRYPOINT exec /opt/knime/knime_3.3.1/knime
